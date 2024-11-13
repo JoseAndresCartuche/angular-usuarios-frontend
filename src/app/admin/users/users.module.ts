@@ -6,6 +6,9 @@ import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,14 @@ import { MatCardModule } from '@angular/material/card';
     FormularioUsuariosComponent,
     UsersComponent,
   ],
-  imports: [CommonModule, MatToolbarModule, MatCardModule, UsersRoutingModule],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    UsersRoutingModule,
+  ],
 })
 export class UsersModule {}

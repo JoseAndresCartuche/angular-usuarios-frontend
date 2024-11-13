@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ResponseModel } from '../admin/dto/response.model';
 import { User } from '../admin/dto/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class UsersService {
 
   constructor(public http: HttpClient) { }
 
-  public listarTodos() {
+  public listarTodos(): Observable<ResponseModel<User[]>> {
     return this.http.get<ResponseModel<User[]>>(this.apiURL);
   }
 
-  public obtenerPorId(id: number) {
+  public obtenerPorId(id: number): Observable<ResponseModel<User>> {
     return this.http.get<ResponseModel<User>>(this.apiURL + '/' + id);
   }
 
@@ -25,11 +26,11 @@ export class UsersService {
     return this.http.post<ResponseModel<User>>(this.apiURL, user);
   };
 
-  public actualizar(user: User) {
+  public actualizar(user: User): Observable<ResponseModel<User>> {
     return this.http.put<ResponseModel<User>>(this.apiURL, user);
   };
 
-  public eliminar(id: number) {
-    return this.http.delete<ResponseModel<User>>(this.apiURL + '/' + id);
+  public eliminar(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiURL + '/' + id);
   }
 }
